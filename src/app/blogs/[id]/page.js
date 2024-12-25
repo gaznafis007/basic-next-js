@@ -1,28 +1,4 @@
-import Link from "next/link";
-
-
-const Blogs = () => {
-    return (
-        <div className='mt-12 mx-16'>
-            <h2 className='text-4xl text-amber-600 font-semibold text-center border border-amber-500 rounded-md p-4'>This is blogs page</h2>
-            <div className="mt-8 grid grid-cols-3 gap-2">
-                {
-                    blogs.map(blog => (
-                        <div key={blog?.id} className="border-2 rounded-md border-slate-800 text-slate-800 p-3">
-                            <h2 className="text-xl font-bold">{blog?.title}</h2>
-                            <h3 className="text-lg font-semibold text-slate-600 mt-2">-{blog?.author}</h3>
-                            <p className="mt-4 text-justify">{blog?.content}</p>
-                            <p className="mt-6 text-blue-500">Likes: {blog?.likes} comments: {blog?.comments}</p>
-                            <Link href={`/blogs/${blog?.id}`} className="mt-4 text-green-500">Details</Link>
-                            <Link href={`/about/${blog?.id}`} className="mt-4 ml-3 text-green-500">All Details</Link>
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    );
-};
-
+import React from 'react';
 
 const blogs = [
     {
@@ -191,6 +167,15 @@ const blogs = [
       "comments": 22
     }
   ]
-  
-  
-export default Blogs;
+const BlogDetails = ({params}) => {
+    
+    const blog =  blogs.find(singleBlog => singleBlog.id === parseInt(params?.id))
+    return (
+        <div className='mt-12 mx-16'>
+            <h2 className='text-4xl font-bold text-slate-800 text-center'>{blog?.title}</h2>
+            <h3 className='text-2xl font-semibold mt-4 text-right text-slate-600'>- {blog?.author}</h3>
+            <p className='mt-6 text-center text-slate-800'>{blog?.content}</p>
+        </div>
+    );
+};
+export default BlogDetails;

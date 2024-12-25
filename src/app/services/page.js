@@ -8,7 +8,7 @@ const Services = () => {
                 This is services
             </h2>
             <div className="mt-8 mx-12 w-32 px-4 py-2 bg-slate-800 text-white rounded-md text-center cursor-pointer">
-                <Link href={'/'}>Home</Link>
+                <Link href={'/services/meals'}>Meals</Link>
             </div>
         </div>
     );

@@ -16,7 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "NextHero",
+  title: {
+    default: 'Next Hero',
+    template: '%s | Next Hero'
+  },
   description: "An app to practice next.js",
 };
 
@@ -27,9 +30,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar/>
-        <div className="h-screen">
+        
         {children}
-        </div>
+        
         <Footer/>
       </body>
     </html>
